@@ -1,24 +1,41 @@
-# README
+## Table of contents
+- [Table of contents](#table-of-contents)
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## General info
+This project is a basic API implementation to get the population data based on the zip code given.
 
-Things you may want to cover:
+## Technologies
+Project is created with:
+* Ruby version: 2.5.1
+* Rails version: 5.2.4
 
-* Ruby version
+## Setup
+To run this project
 
-* System dependencies
+1. Create a `.env` file and populate it with the correct URLs to the remote CSV files
 
-* Configuration
+```
+ZIP_TO_CBSA=link/to/csv
+CBSA_TO_MSA=link/to/csv
+```
 
-* Database creation
+2. Install it locally using bundler:
 
-* Database initialization
+```
+$ bundle install
+```
 
-* How to run the test suite
+3. Set up the database:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ bin/rails db:create && bin/rails db:migrate
+```
 
-* Deployment instructions
+4. Start the Rails server:
 
-* ...
+```
+$ bin/rails s
+```
