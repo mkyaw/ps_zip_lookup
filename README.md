@@ -39,3 +39,9 @@ $ bin/rails db:create && bin/rails db:migrate
 ```
 $ bin/rails s
 ```
+
+5. Get the population data at this endpoint:
+
+```
+http://localhost:3000/populations?zip={5-DIGIT ZIP CODE}
+```
