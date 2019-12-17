@@ -37,11 +37,21 @@ RSpec.describe PopulationsController, type: :controller do
     end
 
     describe 'missing parameter' do
-      it 'returns the error' do
+      it 'returns the correct error' do
         get :index
         expect(response).to have_http_status(:unprocessable_entity)
         expect(JSON.parse(response.body)).to eq(
           'error' => 'param is missing or the value is empty: zip'
+        )
+      end
+    end
+
+    describe 'invalid zip' do
+      it 'returns the correct error' do
+        get :index, params: { zip: '123456789' }
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(JSON.parse(response.body)).to eq(
+          'error' => 'invalid zip'
         )
       end
     end
